@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salario e comissao</title>
+    <link rel="stylesheet" href="lista_01.css">
+    <script src="lista_01.js"> </script>
+</head>
+<body>
+    <div id="container">
+        <h1>Calcúlo do salário</h1>
+        <div id="form">
+            <div>
+                <label for="salario">Entre com o salário</label>
+                <input type="number" min=0 id="salario" placeholder="Ex: 1000,00" required/>
+            </div>
+            <div>
+                <label for="vendas">Entre com as vendas</label>
+                <input type="number" min=0 id="vendas" placeholder="Ex: 200,00" required/>
+            </div>
+            <div>
+                <button onclick="exe_06()"> Calcular </button>
+            </div>
+            <div>
+                <p id="salariofinal">
+         
+                </p>
+                <p id="comissao">
+              
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
