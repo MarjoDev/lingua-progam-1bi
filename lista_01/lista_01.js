@@ -72,3 +72,10 @@ function exe_10(){
     document.getElementById("calculo").innerHTML =
     `A area do quadrado é de ${calcalculo}`
 }
+function exe_11(){
+    let caldiagomaior = document.getElementById("diagonalmaior").value
+    let caldiagomenor = document.getElementById("diagonalmenor").value
+    let calcalculo = (caldiagomaior * caldiagomenor) / 2
+    document.getElementById("calculo").innerHTML =
+    `A area do losango é de ${calcalculo}`
+}
