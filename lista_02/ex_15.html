@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investimentos</title>
+    <link rel="stylesheet" href="lista_02.css">
+    <script src="lista_02.js"></script>
+</head>
+<body>
+    <div id="container">
+        <h1>Tipos de investimento</h1>
+        <div id="form">
+            <div>
+                <p>1 = Poupança 2 = Fundos de renda fixa</p>
+            </div>
+            <div>
+                <label for="investi">Entre com o tipo de investimento</label>
+                <input type="number" id="investi" required>
+            </div>
+            <div>
+                <label for="investido">Entre com o valor investido</label>
+                <input type="number" id="investido" required>
+            </div>
+            <div>
+                <button onclick="exe_15()"> Calcular </button>
+            </div>
+            <div>
+                <p id="resultado">
+
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
