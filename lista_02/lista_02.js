@@ -97,3 +97,142 @@ function exe_18(){
         alert("Idade inválida")
     }
 }
+function exe_19(){
+    let calsexo = document.getElementById("sexo").value
+    let calaltura = document.getElementById("altura").value
+    if (calsexo == 1){
+        let calimc = (72.7 * calaltura) - 58
+        document.getElementById("resultado").innerHTML =
+       `O peso ideal para sual altura e sexo é ${calimc}`
+    }
+    else if (calsexo == 2){
+        let calimc = (62.1 * calaltura) - 44.7
+        document.getElementById("resultado").innerHTML =
+       `O peso ideal para sual altura e sexo é ${calimc}`
+    }
+    else{
+        alert("Opção inválida")
+    }
+}
+function exe_20(){
+    let calidade = document.getElementById("idade").value
+    if (calidade >= 5 && calidade <= 7){
+        document.getElementById("resultado").innerHTML =
+       `Você está na categoria infantil`
+    }
+    else if (calidade >= 8 && calidade <= 10){
+        document.getElementById("resultado").innerHTML =
+       `Você está na categoria juvenil`
+    }
+    else if (calidade >=11 && calidade <= 15){
+        document.getElementById("resultado").innerHTML =
+       `Você está na categoria adolescente`
+    }
+    else if (calidade >= 16 && calidade <= 30){
+        document.getElementById("resultado").innerHTML =
+       `Você está na categoria adulto`
+    }
+    else if (calidade > 30){
+        document.getElementById("resultado").innerHTML =
+       `Você está na categoria sênior`
+    }
+    else{
+        alert("Você não esta em nenhuma categoria")
+    }
+}
+function exe_21(){
+    let calcodigo = document.getElementById("codigo").value
+    if (calcodigo == 1){
+        document.getElementById("resultado").innerHTML =
+       `A procedencia do produto é sul`
+    }
+    else if (calcodigo == 2){
+        document.getElementById("resultado").innerHTML =
+       `A procedencia do produto é norte`
+    }
+    else if (calcodigo == 3){
+        document.getElementById("resultado").innerHTML =
+       `A procedencia do produto é leste`
+    }
+    else if (calcodigo == 4){
+        document.getElementById("resultado").innerHTML =
+       `A procedencia do produto é oeste`
+    }
+    else if (calcodigo == 5 || calcodigo == 6){
+        document.getElementById("resultado").innerHTML =
+       `A procedencia do produto é nordeste`
+    }
+    else if (calcodigo >= 7 && calcodigo <= 9){
+        document.getElementById("resultado").innerHTML =
+       `A procedencia do produto é sudeste`
+    }
+    else if (calcodigo >= 10 && calcodigo <= 20){
+        document.getElementById("resultado").innerHTML =
+       `A procedencia do produto é centro-oeste`
+    }
+    else if (calcodigo >= 21 && calcodigo <= 30){
+        document.getElementById("resultado").innerHTML =
+       `A procedencia do produto é noroeste`
+    }
+    else{
+        alert("Código inválido")
+    }
+}
+function exe_22(){
+    let calidade = document.getElementById("idade").value
+    let calpeso = document.getElementById("peso").value
+    if (calpeso >= 1 && calpeso < 60){
+        if(calidade > 0 && calidade < 20){
+            document.getElementById("resultado").innerHTML = 
+            `Você está na categoria 9`
+        }
+        else if(calidade >= 20 && calidade <= 50){
+            document.getElementById("resultado").innerHTML = 
+            `Você está na categoria 6`
+        }
+        else if(calidade > 50){
+            document.getElementById("resultado").innerHTML = 
+            `Você está na categoria 3`
+        }
+        else{
+            alert("Entre com uma idade válida")
+        }
+    }
+    else if (calpeso >= 60 && calpeso <= 90){
+        if(calidade > 0 && calidade < 20){
+            document.getElementById("resultado").innerHTML = 
+            `Você está na categoria 8`
+        }
+        else if(calidade >= 20 && calidade <= 50){
+            document.getElementById("resultado").innerHTML = 
+            `Você está na categoria 5`
+        }
+        else if(calidade > 50){
+            document.getElementById("resultado").innerHTML = 
+            `Você está na categoria 2`
+        }
+        else{
+            alert("Entre com uma idade válida")
+        }
+    }
+    else if (calpeso > 90){
+        if(calidade > 0 && calidade < 20){
+            document.getElementById("resultado").innerHTML = 
+            `Você está na categoria 7`
+        }
+        else if(calidade >= 20 && calidade <= 50){
+            document.getElementById("resultado").innerHTML = 
+            `Você está na categoria 4`
+        }
+        else if(calidade > 50){
+            document.getElementById("resultado").innerHTML = 
+            `Você está na categoria 1`
+        }
+        else{
+            alert("Entre com uma idade válida")
+        }
+    }
+    else{
+        alert("Entre com um peso válido")
+    }
+}
