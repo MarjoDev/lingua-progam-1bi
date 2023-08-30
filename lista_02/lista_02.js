@@ -236,3 +236,44 @@ function exe_22(){
         alert("Entre com um peso válido")
     }
 }
+function exe_23(){
+    let calcodigo = document.getElementById("codigo").value
+    let calquant = document.getElementById("quant").value
+
+    if (calcodigo >= 1 && calcodigo <= 10){
+        precouni = 10
+    }
+    else if (calcodigo >= 11 && calcodigo <= 20){
+        precouni = 15
+    }
+    else if (calcodigo >= 21 && calcodigo <= 30){
+        precouni = 20
+    }
+    else if (calcodigo >= 31 && calcodigo <= 40){
+        precouni = 30
+    }
+    else{
+        alert("Entre com um código válido")
+    }
+
+    let preconota = precouni * calquant
+
+    if (preconota < 250){
+        desconto = 0.05
+    }
+    else if (preconota >= 250 && preconota <= 500){
+        desconto = 0.1
+    }
+    else if (preconota > 500){
+        desconto = 0.15
+    }
+
+    let descontoaplicado = preconota * desconto
+    let precofinal = preconota - descontoaplicado
+
+    document.getElementById("resultado").innerHTML = 
+    `O preço unitário do produto é de ${precouni} <br>
+    O preço total da nota é de ${preconota} <br>
+    O valor do desconto é de ${descontoaplicado} <br>
+    O preço final do produto é de ${precofinal}`
+}
