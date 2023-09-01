@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preco e categoria</title>
+    <link rel="stylesheet" href="lista_02.css">
+    <script src="lista_02.js"></script>
+</head>
+<body>
+    <div id="container">
+        <h1>Preço e categorização de produto</h1>
+        <div id="form">
+            <div>
+                <label for="preco">Entre com o preço do produto</label>
+                <input type="number" id="preco" required>
+            </div>
+            <div>
+                <label for="categoria">Entre com a categoria</label> <br>
+                <select type="number" id="categoria" required>
+                    <option value="1">1 - Limpeza</option>
+                    <option value="2">2 - Alimentação</option>
+                    <option value="3">3 - Vestuário</option>
+                </select>
+            </div>
+            <div>
+                <label for="refrige">O produto nescessita de refrigeração</label>
+                <select type="number" id="refrige" required>
+                    <option value="1">R - Nescessita</option>
+                    <option value="2">N - Não nescessita</option>
+                </select>
+            </div>
+            <div>
+                <button onclick="exe_24()"> Calcular </button>
+            </div>
+            <div>
+                <p id="resultado">
+
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

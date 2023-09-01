@@ -277,3 +277,61 @@ function exe_23(){
     O valor do desconto é de ${descontoaplicado} <br>
     O preço final do produto é de ${precofinal}`
 }
+function exe_24(){
+    let calpreco = document.getElementById("preco").value
+    let calcategoria = document.getElementById("categoria").value
+    let calrefrige = document.getElementById("refrige").value
+
+    if(calpreco <= 25 && calpreco > 0){
+        switch(calcategoria){
+            case 1:
+               percentual = 0.05
+            break
+            case 2:
+               percentual = 0.08
+            break
+            case 3:
+               percentual = 0.1
+            break
+        }
+    }
+    else if(calpreco > 25){
+        switch(calcategoria){
+            case 1:
+               percentual = 0.12
+            break
+            case 2:
+               percentual = 0.15
+            break
+            case 3:
+               percentual = 0.18
+            break
+        }
+    }
+    else{
+        alert("Entre com um preço válido")
+    }
+
+    imposto = 0.08
+    if(calcategoria == 2 || calrefrige == 1){
+        imposto = 0.05
+    }
+
+    calprecoaumento1 = parsefloat(calpreco) + parsefloat((calpreco * percentual))
+    calprecoaumento = calprecoaumento1 - (imposto * calpreco)
+    
+    
+    if (calprecoaumento <= 50){
+        classi = "barato"
+    }
+    else if (calprecoaumento > 50 && calprecoaumento < 120){
+        classi = "normal"
+    }
+    else if (calprecoaumento > 120){
+        classi = "caro"
+    }
+
+    document.getElementById("resultado").innerHTML = 
+    `O preço final do produto é de ${calprecoaumento} <br>
+    A classificação é de ${classi}`
+}
