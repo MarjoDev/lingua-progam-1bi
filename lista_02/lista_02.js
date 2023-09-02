@@ -278,60 +278,91 @@ function exe_23(){
     O preço final do produto é de ${precofinal}`
 }
 function exe_24(){
-    let calpreco = document.getElementById("preco").value
-    let calcategoria = document.getElementById("categoria").value
-    let calrefrige = document.getElementById("refrige").value
+    let calpreco = Number(document.getElementById("preco").value)
+    let calcategoria = Number(document.getElementById("categoria").value)
+    let calrefrige = Number(document.getElementById("refrige").value)
+    let percentualaumento = Number(null)
+    let classificacao = String(null)
+    let imposto = Number(null)
+    let novopreco = Number(null)
 
-    if(calpreco <= 25 && calpreco > 0){
-        switch(calcategoria){
-            case 1:
-               percentual = 0.05
-            break
-            case 2:
-               percentual = 0.08
-            break
-            case 3:
-               percentual = 0.1
-            break
-        }
+    if (calpreco <= 25 && calpreco > 0){
+        switch(calcategoria) {
+            case 1: percentualaumento = 0.05
+                    break
+            case 2: percentualaumento = 0.08
+                    break
+            case 3: percentualaumento = 0.1
+            default: document.getElementById("resultado").innerHTML = 
+            'Opção inválida'
+        }   
     }
-    else if(calpreco > 25){
-        switch(calcategoria){
-            case 1:
-               percentual = 0.12
-            break
-            case 2:
-               percentual = 0.15
-            break
-            case 3:
-               percentual = 0.18
-            break
-        }
+    else if (calpreco > 25){
+        switch(calcategoria) {
+            case 1: percentualaumento = 0.12
+                    break
+            case 2: percentualaumento = 0.15
+                    break
+            case 3: percentualaumento = 0.18
+            default: document.getElementById("resultado").innerHTML = 
+            'Opção inválida'
+        }   
     }
     else{
-        alert("Entre com um preço válido")
+        document.getElementById("resultado").innerHTML = 
+        'Opção inválida'
     }
 
-    imposto = 0.08
     if(calcategoria == 2 || calrefrige == 1){
         imposto = 0.05
     }
+    else{
+        imposto = 0.08
+    }
 
-    calprecoaumento1 = parsefloat(calpreco) + parsefloat((calpreco * percentual))
-    calprecoaumento = calprecoaumento1 - (imposto * calpreco)
-    
-    
-    if (calprecoaumento <= 50){
-        classi = "barato"
+    novopreco = (calpreco + (calpreco * percentualaumento)) - (calpreco * imposto)
+
+    if(novopreco <= 50){
+        classificacao = "barato"
     }
-    else if (calprecoaumento > 50 && calprecoaumento < 120){
-        classi = "normal"
+    else if(novopreco > 50 && novopreco < 120){
+        classificacao = "normal"
     }
-    else if (calprecoaumento > 120){
-        classi = "caro"
+    else if(novopreco >= 120){
+        classificacao = "caro"
     }
 
     document.getElementById("resultado").innerHTML = 
-    `O preço final do produto é de ${calprecoaumento} <br>
-    A classificação é de ${classi}`
+    `O novo preço é de ${novopreco} <br>
+    A classificação é de ${classificacao} `
+}
+function exe_25(){
+    let calhorasextras = Number(document.getElementById("horasextras").value)
+    let calhorasfaltas = Number(document.getElementById("horasfaltas").value)
+    let minutoextra = Number(calhorasextras * 60)
+    let minutofalta = Number(calhorasfaltas * 60)
+    let h = Number(minutoextra - (2/3 * (minutofalta)))
+    let premio = Number(null)
+
+    if (h < 600 && h > 0){
+        premio = 100
+    }
+    else if (h >= 600 && h < 1200){
+        premio = 200
+    }
+    else if (h >= 1200 && h < 1800){
+        premio = 300
+    }
+    else if (h >= 1800 && h < 2400){
+        premio = 400
+    }
+    else if (h > 2400){
+        premio = 500
+    }
+    else{
+        alert("Entre com uma hora válida")
+    }
+
+    document.getElementById("resultado").innerHTML = 
+    `O premio será de ${premio} `
 }
