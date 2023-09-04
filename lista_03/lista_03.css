@@ -1,0 +1,32 @@
+#container {
+    width: 50%;
+    margin: 30px auto;
+    border: 1px solid #000;
+    background-color: lightgrey;
+}
+h1 {
+    text-align: center;
+}
+#form {
+    border: 1px solid #000;
+    padding: 20px;
+    margin: 20px;
+}
+div {
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style: none;
+}
+li {
+    margin-bottom: 20px;
+}
+a:link, a:visited, a:active {
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    text-decoration: underline;
+    color: black;
+}
