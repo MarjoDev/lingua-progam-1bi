@@ -241,3 +241,57 @@ function exe_08(){
     <td> ${calolhoazul}%</td> <td> ${cabeloruivo}</td> </tr>`
     document.getElementById('corpo').innerHTML = corpo
 }
+
+function exe_09(){
+    let contador2 = 1
+    let mediaidade = 0
+    let calmediaidade = 0
+    let acimanoventa = 0
+    let porcentagem = 0
+    let calporcentagem = 0
+    let corpo = ''
+
+    while (contador2 <= 10){  
+        let idade = Number(prompt('Informe a idade'))
+        let peso = Number(prompt('Informe o peso'))
+        let altura = Number(prompt('Informe a altura'))
+        mediaidade = mediaidade + idade
+        if(peso > 90 && altura < 1.5){
+            acimanoventa++
+        }
+        if( idade > 10 && idade < 30 && altura >  1.9){
+            porcentagem++
+        }
+        contador2++
+    }
+
+    calmediaidade = mediaidade / 10
+    calporcentagem = (porcentagem * 100) / 10
+
+    corpo = corpo + `<tr> <td> ${calmediaidade} </td> <td> ${acimanoventa}</td> 
+    <td> ${calporcentagem}%</td> </tr>`
+    document.getElementById('corpo').innerHTML = corpo
+}
+function exe_10(){
+    let contador2 = 1
+    let pares = 0
+    let primos = 0
+
+    while(contador2 <=10){
+        let numero = Number(prompt("Entre com um número"))
+        if(numero % 2 == 0 && numero != 2){
+            pares = pares + numero
+        }
+        else if(numero % 3 != 0 && numero % 5 != 0 && numero % 11 != 0 && numero != 1 || numero == 2){
+            primos = primos + numero
+        }
+        else if (numero == 3 || numero == 5 || numero || numero == 11){
+            primos = primos + numero
+        }
+        contador2++
+    }
+
+    document.getElementById("corpo").innerHTML = 
+    `A soma dos números pares é de ${pares} 
+    A soma dos números primos é de ${primos}`
+}
