@@ -24,13 +24,13 @@ function prova(){
         // verifica se o produto existe
         let achou = false
         for(let j=0;j<3;j++){ // para percorrer os vetores dos produtos
-            console.log(objeto2.nomeCompra, vetor[j].objeto.nomes, objeto2.clasCompra, vetor[j].objeto.classificacao)
-            if (objeto2.nomeCompra == vetor[j].objeto.nomes && objeto2.clasCompra == vetor[j].objeto.classificacao){
+            console.log(objeto2.nomeCompra, vetor[j].nomes, objeto2.clasCompra, vetor[j].classificacao)
+            if (objeto2.nomeCompra == vetor[j].nomes && objeto2.clasCompra == vetor[j].classificacao){
                 achou = true
                 // verifica se tem estoque
-                if (objeto2.qtdCompra <= vetor[j].objeto.estoque){
+                if (objeto2.qtdCompra <= vetor[j].estoque){
                     console.log(`Venda realizada com sucesso`)
-                    vetor[j].objeto.estoque = vetor[j].objeto.estoque - objeto2.qtdCompra
+                    vetor[j].objeto.estoque = vetor[j].estoque - objeto2.qtdCompra
                 } 
                 else {
                     console.log(`Não tem estoque suficiente`)
