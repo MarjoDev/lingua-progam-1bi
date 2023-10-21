@@ -97,5 +97,5 @@ function bike(){
             default:
                 console.log(`Insira um valor válido`)
         }
-    }while(opcao != 6)
+    }while(opcao != 7)
 }
