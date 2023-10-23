@@ -15,7 +15,7 @@ function cadastraPartido(vetor){
     vetor.push(objeto)
     alert(`Partido cadastrado com sucesso`)
 }
-function cadastraPolitico(vetor){
+function cadastraPolitico(vetor, vetor2){
     let objeto2 = {
         codPartido: parseInt(prompt(`informe o código do partido do candidato`)),
         nome: prompt(`Informe o nome do candidato`),
@@ -25,31 +25,31 @@ function cadastraPolitico(vetor){
     while (!vetor.some((item) => item.codigo == objeto2.codPartido)){
         objeto2.codPartido = parseInt(prompt(`Partido não encontrado, informe novo código`))
     }
-    while (vetor.some((item) => item.nome == objeto2.nome)){
+    while (vetor2.some((item) => item.nome == objeto2.nome)){
         objeto2.nome = prompt(`Nome já existe, informe novo nome`)
     }
-    vetor.push(objeto2)
+    vetor2.push(objeto2)
     alert(`Político cadastrado com sucesso`)
 }
-function votacao(vetor){
+function votacao(vetor2){
     let votacao = {
         partido: parseInt(prompt(`Informe o código do partido`)),
         candidato: prompt(`Informe o nome do candidato`)
     }
-    let posicao = vetor.findIndex ((item) => item.codPartido == votacao.partido &&
+    let posicao = vetor2.findIndex ((item) => item.codPartido == votacao.partido &&
         item.nome == votacao.candidato )
     if (posicao!= -1){
-        vetor[posicao].qtde++
+        vetor2[posicao].qtde++
         alert(`Votação realizada com sucesso`)
     }
     else{
         alert(`Partido e/ou candidato não existe`)
     }
 }
-function candidatoMaisVotado(vetor){
+function candidatoMaisVotado(vetor2){
     let candidatoMais = vetor[0]
-    for(let i=1;i<vetor.length;i++){
-        if(vetor[i].qtde > candidatoMais.qtde){
+    for(let i=1;i<vetor2.length;i++){
+        if(vetor2[i].qtde > candidatoMais.qtde){
             candidatoMais = vetor[i]
         }
     }
@@ -57,6 +57,7 @@ function candidatoMaisVotado(vetor){
 }
 function resultado(){
     let vetor = []
+    let vetor2 = []
     let opcao 
     do{
         opcao = parseInt(console.log(`Escolha uma opção: 1-Cadastrar Partido 2-Cadastrar Político 3-Votar 4-Candidato mais Votado 5-Sair do programa`))
@@ -65,13 +66,13 @@ function resultado(){
                 cadastraPartido(vetor)
             break;
             case 2:
-                cadastraPolitico(vetor)
+                cadastraPolitico(vetor2, vetor)
             break;
             case 3:
-                votacao(vetor)
+                votacao(vetor2)
             break;
             case 4:
-                candidatoMaisVotado(vetor)
+                candidatoMaisVotado(vetor2)
             break;
             case 5:
                 console.log(`Programa encerrado`)

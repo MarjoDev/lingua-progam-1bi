@@ -9,7 +9,7 @@ function cadastraFarmacia(vetor) {
     }
     vetor.push(objeto) 
 }
-function cadastraRemedio(vetor){
+function cadastraRemedio(vetor, vetor2){
     let objeto2 = {
         codigo: parseInt(prompt("Informe o código da farmácia")),
         nome: prompt("Informe o nome da remédio").toUpperCase(),
@@ -19,20 +19,26 @@ function cadastraRemedio(vetor){
     while(!vetor.some((item) => item.codigo == objeto2.codigo)){
         objeto2.codigo = parseInt(prompt("Informe um código válido"))
     }
-    vetor.push(objeto2) 
+    let indice = vetor2.findIndex( (item) => item.codigo == objeto.codigo && item.nome == objeto.nome)
+        if (indice == -1){ // remedio não existe
+            vetor2.push(objeto) // insere remédio
+        }
+        else { // já existe, atualiza estoque
+            vetor2[indice].qtde = vetor2[indice].estoque + objeto.estoque
+        } 
 }
-function compraRemedio(vetor){
+function compraRemedio(vetor2){
     let objeto3 = {
         codigo: parseFloat(prompt("Informe o código da farmácia")),
         nome: prompt("Informe o nome da remédio").toUpperCase(),
         quantidade: parseInt(prompt("Informe a quantidade que deseja funcionar")),
     }
-    if(vetor.some((item) =>
+    if(vetor2.some((item) =>
         (item.codigo == objeto3.codigo && item.nome == objeto3.nome))){
-            let indice = vetor.findIndex((item =>
+            let indice = vetor2.findIndex((item =>
                 item.nome == objeto3.nome && item.codigo == objeto3.codigo))
-            if (objeto3.quantidade <= vetor[indice].estoque){
-                vetor[indice].estoque = vetor[indice].estoque = objeto3.quantidade
+            if (objeto3.quantidade <= vetor2[indice].estoque){
+                vetor2[indice].estoque = vetor2[indice].estoque = objeto3.quantidade
                 alert(`Compra realizada com sucesso`)
             }
             else{
@@ -43,8 +49,9 @@ function compraRemedio(vetor){
         alert(`Farmácia ou remédio inexistente`)
     }
 }
-function remedio(){
+let remedio = () => {
     let vetor = []
+    let vetor2 = []
     let opcao 
     do{
         opcao = parseInt(console.log(`Escolha uma opção: 1-Cadastrar Farmácia 2-Cadastrar Remédio 3-Comprar Remédio 4-Sair do programa`))
@@ -53,10 +60,10 @@ function remedio(){
                 cadastraFarmacia(vetor)
             break;
             case 2:
-                cadastraRemedio(vetor)
+                cadastraRemedio(vetor, vetor2)
             break;
             case 3:
-                compraRemedio(vetor)
+                compraRemedio(vetor2)
             break;
             case 4:
                 console.log(`Programa encerrado`)
