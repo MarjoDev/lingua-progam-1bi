@@ -11,7 +11,7 @@ async function api(){
     document.getElementById("latitude").value = dados.address.geo.lat
     document.getElementById("longitude").value = dados.address.geo.lng
     document.getElementById("telefone").value = dados.phone
-    document.getElementById("website").value = dados.websitse
+    document.getElementById("website").value = dados.website
     document.getElementById("companhia").value = dados.company.name
     document.getElementById("frase").value = dados.company.catchPhrase
     document.getElementById("bs").value = dados.company.bs
